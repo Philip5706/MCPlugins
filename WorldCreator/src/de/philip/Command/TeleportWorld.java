@@ -17,7 +17,7 @@ public class TeleportWorld implements CommandExecutor{
 		this.plugin = plugin;
 	}
 
-
+//heheh
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
 		if(sender instanceof Player) {
