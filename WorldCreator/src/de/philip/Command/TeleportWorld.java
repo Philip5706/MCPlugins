@@ -18,6 +18,7 @@ public class TeleportWorld implements CommandExecutor{
 	}
 
 //heheh
+//	hihihih
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
 		if(sender instanceof Player) {
