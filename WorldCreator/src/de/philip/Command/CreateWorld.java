@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 
 import de.philip.Main.main;
 import de.philip.Utils.WorldUtil;
+import net.md_5.bungee.api.ChatColor;
 
 public class CreateWorld implements CommandExecutor{
 	
@@ -24,7 +25,7 @@ public class CreateWorld implements CommandExecutor{
 			if(cmd.getName().equalsIgnoreCase("createworld")) {
 				
 				if(args.length == 0) {
-					p.sendMessage(main.WORLDCREATOR_PREFIX + "§cGebe noch Namen, Seed und Welttype an");
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED + "Gebe noch Namen, Seed und Welttype an");
 				} else {
 					String name = args[0];
 					
