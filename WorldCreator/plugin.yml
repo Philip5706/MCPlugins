@@ -4,4 +4,4 @@ main: de.philip.Main.main
 
 commands:
    world:
-      description:Erstellen, löschen und teleportieren von/zwischen Welten
+      description:Erstellen, loeschen, teleportieren und auflisten von Welten

@@ -65,6 +65,10 @@ public class WorldCommand implements CommandExecutor{
 										
 					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.GREEN + "Du wurdest in die Welt §6" + name + "§a teleportiert");
 					
+				} else if(args[0].equalsIgnoreCase("list")) {
+					
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.YELLOW + plugin.getMAPS());
+					
 				}
 					
 			}
