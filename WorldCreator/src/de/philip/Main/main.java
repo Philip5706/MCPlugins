@@ -18,9 +18,9 @@ public class main extends JavaPlugin {
 		
 	public void onEnable() {
 		plugin = this;
+//		PluginManager pluginManager = Bukkit.getPluginManager();
 
-		commandRegistration();
-		listenerRegistration();
+		getCommand("world").setExecutor(new WorldCommand(this));
 		
 		loadConfig();
 		
@@ -40,14 +40,6 @@ public class main extends JavaPlugin {
 		getConfig().options().header("Hier werden alle Welten gespeichert");
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-	}
-	
-	private void commandRegistration() {
-		getCommand("world").setExecutor(new WorldCommand(this));
-	}
-	
-	private void listenerRegistration() {
-//		PluginManager pluginManager = Bukkit.getPluginManager();
 	}
 	
 	public main getPlugin() {

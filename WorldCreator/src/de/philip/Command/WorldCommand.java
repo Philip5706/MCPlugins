@@ -25,18 +25,26 @@ public class WorldCommand implements CommandExecutor{
 			
 			if(cmd.getName().equalsIgnoreCase("world")) {
 				
-				if(args.length == 0 || args.length == 1) {
+				if(args.length == 0) {
 					
 					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED +  "/world <CREATE/DELETE/TP> <NAME>");
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED +  "/world <LIST>");
 					
 				} else if(args[0].equalsIgnoreCase("create")) {
 					
 					String name = args[1];
 					
-					p.sendMessage(main.WORLDCREATOR_PREFIX + "§aDie Welt wird erstellt");
-					WorldUtil.createWorld(name, plugin);
+					if(!plugin.getMAPS().contains(name)) {
+						
+						p.sendMessage(main.WORLDCREATOR_PREFIX + "§aDie Welt wird erstellt");
+						
+						WorldUtil.createWorld(name, plugin);
+						
+						p.sendMessage(main.WORLDCREATOR_PREFIX + "§aDie Welt §6" + name + "§a wurde erstellt");
+						
+					}
 					
-					p.sendMessage(main.WORLDCREATOR_PREFIX + "§aDie Welt §6" + name + "§a wurde erstellt");
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED + "Die Welt existiert bereits");
 					
 				} else if(args[0].equalsIgnoreCase("delete")) {
 					

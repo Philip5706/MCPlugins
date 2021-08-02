@@ -10,14 +10,13 @@ import de.philip.Main.main;
 public class WorldUtil {
 				
 	public static void createWorld(String name, main plugin) {
-		
 		plugin.getMAPS().add(name);
 		
 		plugin.getConfig().set("Worlds", plugin.getMAPS());
 		plugin.saveConfig();
 		
-		WorldCreator w = WorldCreator.name(name);
-		Bukkit.createWorld(w);
+		WorldCreator wc = WorldCreator.name(name);
+		Bukkit.createWorld(wc);
 		Bukkit.getWorlds().add(Bukkit.getWorld(name));
 	}
 	
