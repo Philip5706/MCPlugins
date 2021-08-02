@@ -25,7 +25,7 @@ public class CreateWorld implements CommandExecutor{
 			if(cmd.getName().equalsIgnoreCase("createworld")) {
 				
 				if(args.length == 0) {
-					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED + "Gebe noch Namen, Seed und Welttype an");
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED +  "Gebe noch Namen, Seed und Welttype an");
 				} else {
 					String name = args[0];
 					
@@ -42,4 +42,3 @@ public class CreateWorld implements CommandExecutor{
 		return false;
 	}
 }
-//bbb
