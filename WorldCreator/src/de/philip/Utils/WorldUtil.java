@@ -1,7 +1,5 @@
 package de.philip.Utils;
 
-import java.io.File;
-
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
@@ -15,26 +13,33 @@ public class WorldUtil {
 		plugin.getConfig().set("Worlds", plugin.getMAPS());
 		plugin.saveConfig();
 		
-		WorldCreator wc = WorldCreator.name(name);
+		WorldCreator wc = new WorldCreator(name);
 		Bukkit.createWorld(wc);
 		Bukkit.getWorlds().add(Bukkit.getWorld(name));
 	}
 	
-	public static boolean deleteWorld(String name, main plugin) {
+	public static void deleteWorld(String name, main plugin) {
 		
-		File directoryToBeDeleted = new File(name);
-	    File[] allContents = directoryToBeDeleted.listFiles();
-	    if (allContents != null) {
-	        for (File file : allContents) {
-	            deleteWorld(file.getAbsolutePath(), plugin);
-	        }
-	    }
+		Bukkit.getWorld(name).getWorldFolder().delete();
+		
+//		World delete = Bukkit.getWorld(name);
+//		File deleteFolder = delete.getWorldFolder();
+//		
+//		deleteWorld(deleteFolder);
+		
+//		File directoryToBeDeleted = new File(name);
+//	    File[] allContents = directoryToBeDeleted.listFiles();
+//	    if (allContents != null) {
+//	        for (File file : allContents) {
+//	            deleteWorld(file.getAbsolutePath(), plugin);
+//	        }
+//	    }
 	    
 		plugin.getMAPS().remove(name);
 		plugin.getPlugin().getConfig().set("Worlds", plugin.getMAPS());
 		plugin.getPlugin().saveConfig();
 		
-	    return directoryToBeDeleted.delete();
+//	    return directoryToBeDeleted.delete();
 	}
 	
 }
