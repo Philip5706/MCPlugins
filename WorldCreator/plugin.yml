@@ -3,6 +3,5 @@ version: 1.0
 main: de.philip.Main.main
 
 commands:
-   createworld:
-   delworld:
-   tpworld:
+   world:
+      description:Erstellen, löschen und teleportieren von/zwischen Welten

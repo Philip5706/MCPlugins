@@ -6,9 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.philip.Command.CreateWorld;
-import de.philip.Command.DelWorld;
-import de.philip.Command.TeleportWorld;
+import de.philip.Command.WorldCommand;
 import net.md_5.bungee.api.ChatColor;
 
 public class main extends JavaPlugin {
@@ -20,12 +18,10 @@ public class main extends JavaPlugin {
 		
 	public void onEnable() {
 		plugin = this;
-//		PluginManager pluginManager = Bukkit.getPluginManager();
-				
-		getCommand("createworld").setExecutor(new CreateWorld(this));
-		getCommand("delworld").setExecutor(new DelWorld(this));
-		getCommand("tpworld").setExecutor(new TeleportWorld(this));
 
+		commandRegistration();
+		listenerRegistration();
+		
 		loadConfig();
 		
 		for(int i = 0; i < MAPS.size(); i++) {
@@ -44,6 +40,14 @@ public class main extends JavaPlugin {
 		getConfig().options().header("Hier werden alle Welten gespeichert");
 		getConfig().options().copyDefaults(true);
 		saveConfig();
+	}
+	
+	private void commandRegistration() {
+		getCommand("world").setExecutor(new WorldCommand(this));
+	}
+	
+	private void listenerRegistration() {
+//		PluginManager pluginManager = Bukkit.getPluginManager();
 	}
 	
 	public main getPlugin() {
