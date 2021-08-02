@@ -25,23 +25,23 @@ public class TeleportWorld implements CommandExecutor{
 			if(cmd.getName().equalsIgnoreCase("tpworld")) {
 				
 				if(args.length == 0) {
-					p.sendMessage(main.WORLDCREATOR_PREFIX + "�cGebe noch Namen an");
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED + "Gebe noch Namen an");
 				} else {
 					String name = args[0];
-					//hehehuhu
+
 					if(!plugin.getMAPS().contains(name)) {
 						p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED + "Diese Welt existiert nicht");
 						return false;
 					}
-					
+
 					p.teleport(Bukkit.getWorld(name).getSpawnLocation());
-										
-					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.GREEN + "Du wurdest in die Welt �6" + name + "�a teleportiert");
+
+					p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.GREEN + "Du wurdest in die Welt " + ChatColor.YELLOW + name + ChatColor.GREEN + " teleportiert");
 					
 				}
 				
 			} else {
-				p.sendMessage(main.WORLDCREATOR_PREFIX + "�cBitte nutze �6/tpworld <NAME>");
+				p.sendMessage(main.WORLDCREATOR_PREFIX + ChatColor.RED + "Bitte nutze " + ChatColor.YELLOW + "/tpworld <NAME>");
 			}
 		}	
 		return false;
